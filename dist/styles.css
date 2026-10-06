@@ -1,0 +1,45 @@
+/* 1. Shared colors and spacing: change these to make the design your own. */
+:root{color-scheme:dark;--background:#101214;--text:#f1f3f4;--muted:#a5adb5;--accent: #f36b7f;--line:#30353a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:2rem}
+body{margin:0;background:var(--background);color:var(--text);font-family:Arial,Helvetica,sans-serif;font-size:1rem;line-height:1.7}
+a{color:inherit}
+.page{max-width:1180px;margin:auto;padding:0 5rem}
+header{display:flex;justify-content:space-between;align-items:center;padding:2rem 0;border-bottom:1px solid var(--line)}
+.monogram{font-size:1.7rem;font-weight:800;text-decoration:none;letter-spacing:-.08em}
+.monogram span{color:var(--accent)}
+.header-label,footer{font-size:.875rem;color:var(--muted)}
+/* 2. The introduction: a large name and a simple primary link. */
+.intro{padding:4.5rem 0 3.5rem}
+.eyebrow{margin:0 0 1.5rem;text-transform:uppercase;letter-spacing:.14em;font-size:.875rem;color:var(--muted)}
+h1{font-size:clamp(4.5rem,12vw,9.5rem);line-height:.98;letter-spacing:-.065em;margin:0;font-weight:800}
+h1 span{color:var(--accent)}
+.intro-bottom{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-top:2rem}
+.lead{font-size:clamp(1.2rem,3vw,1.6rem);line-height:1.5;margin:0;letter-spacing:-.025em}
+.button{display:inline-flex;align-items:center;justify-content:center;padding:.8rem 1.9rem;border:1px solid var(--accent);border-radius:3px;color:var(--background);background:var(--accent);text-decoration:none;font-weight:700;transition:background .15s,color .15s}
+.button:hover{background:var(--background);color:var(--accent)}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:6px}
+/* 3. Supporting content uses a two-column grid on larger screens. */
+.bio,.resume{display:grid;grid-template-columns:1fr 2fr;gap:3rem;border-top:1px solid var(--line);padding:2.8rem 0}
+h2{font-size:1.25rem;letter-spacing:-.025em;margin:0}
+.bio p,.resume p{margin:0 0 1.2rem;color:var(--muted);max-width:65ch}
+.bio p:first-child{color:var(--text)}
+.skills{display:flex;gap:.7rem;flex-wrap:wrap;list-style:none;padding:0;margin:1.5rem 0 0}
+.skills li{padding:.25rem .8rem;border:1px solid var(--line);border-radius:3px;font-size:.875rem;color:var(--muted)}
+.resume .eyebrow{margin-bottom:.5rem}
+footer{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--line);padding:1.5rem 0 2rem}
+/* 4. On smaller screens, the same content becomes a single column. */
+@media(max-width:700px){.page{padding:0 1.5rem}header{padding:1.4rem 0}.header-label{max-width:12rem;text-align:right}.intro{padding:3.5rem 0 2.5rem}.intro-bottom{align-items:start;flex-direction:column}.bio,.resume{grid-template-columns:1fr;gap:1rem;padding:2rem 0}footer{flex-direction:column;gap:.2rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+/* 5. Original photos are tinted at display time, leaving the uploads intact. */
+.filter-definitions{position:absolute;width:0;height:0;overflow:hidden}
+.photo-background{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0;background:#080d08}
+.background-photo{position:absolute;inset:0 0 0 auto;width:72%;height:100%;object-fit:cover;object-position:50% 25%;filter:url(#green-duotone);opacity:0;transition:opacity 1.8s ease}
+.background-photo.is-visible{opacity:.55}
+.photo-background::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#101214 0%,rgba(16,18,20,.94) 25%,rgba(16,18,20,.55) 65%,rgba(16,18,20,.25)),linear-gradient(0deg,#101214 0%,transparent 70%)}
+.page{position:relative;z-index:1}
+.slideshow-toggle{color:var(--muted);background:#101214;border:1px solid var(--line);border-radius:3px;padding:.3rem .7rem;font:inherit;cursor:pointer}
+.slideshow-toggle:hover{color:var(--accent)}
+.slideshow-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(max-width:700px){.background-photo{width:100%;object-position:50% 18%}.photo-background::after{background:linear-gradient(90deg,rgba(16,18,20,.9),rgba(16,18,20,.55)),linear-gradient(0deg,#101214 5%,transparent 90%)}.slideshow-toggle{align-self:flex-start}}
+@media(prefers-reduced-motion:reduce){.background-photo{transition:none}}
