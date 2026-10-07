@@ -1,5 +1,5 @@
 // Pick a random starting photo, then choose a different one every eight seconds.
-const photos = ['photos/portrait-1.jpg', 'photos/portrait-2.jpg', 'photos/portrait-3.jpg'];
+const photos = ['photos/portrait-1.jpg', 'photos/portrait-2.jpg', 'photos/portrait-3.jpeg', 'photos/portrait-4.jpeg' , 'photos/portrait-5.jpeg', 'photos/portrait-6.jpeg'];
 const layers = [...document.querySelectorAll('.background-photo')];
 const toggle = document.querySelector('.slideshow-toggle');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
